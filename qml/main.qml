@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import 'controls'
+import 'pages'
 
 Window {
     id: window
@@ -16,6 +17,50 @@ Window {
     //Removing Title Bar -->
     flags: Qt.Window | Qt.FramelessWindowHint
     title: qsTr("Build Assistant")
+
+    // Adding a section for pages -->
+    Rectangle {
+        id: pages
+        color: "#00ffffff"
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        clip: true
+        anchors.bottomMargin: 0
+        anchors.topMargin: 20
+        anchors.rightMargin: 0
+        anchors.leftMargin: 0
+
+        // Commenting Stack view as loader has a better performance
+        /*StackView {
+            id: stackView
+            anchors.fill: parent
+            initialItem: Qt.resolvedUrl("pages/home.qml")
+        }*/
+
+        Loader{
+            id: pageViewHome
+            anchors.fill: parent
+            source: Qt.resolvedUrl("pages/home.qml")
+            visible: true
+        }
+
+        Loader{
+            id: pageViewBuildDashboard
+            anchors.fill: parent
+            source: Qt.resolvedUrl("pages/metricDashboardPage.qml")
+            visible: false
+        }
+
+        Loader{
+            id: pageViewAbout
+            anchors.fill: parent
+            source: Qt.resolvedUrl("pages/aboutPage.qml")
+            visible: false
+        }
+
+    }
 
     // Adding a functionality to drag -->
     DragHandler{
@@ -41,15 +86,6 @@ Window {
                 window.showNormal()
             }
         }
-
-    }
-
-    CurvedButton{
-        y: 458
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottomMargin: 48
-        flat: true
 
     }
 
@@ -125,6 +161,16 @@ Window {
             anchors.top: parent.top
             anchors.topMargin: 40
             menuText: "Home"
+            isActive: true
+            onClicked: {
+                home.isActive = true
+                buildDashboard.isActive = false
+                about.isActive = false
+                //stackView.push(Qt.resolvedUrl("pages/home.qml"))
+                pageViewHome.visible = true
+                pageViewBuildDashboard.visible = false
+                pageViewAbout.visible = false
+            }
 
         }
 
@@ -137,6 +183,15 @@ Window {
             anchors.topMargin: 10
             menuText: "Build Dashboard"
             isActive: false
+            onClicked: {
+                home.isActive = false
+                buildDashboard.isActive = true
+                about.isActive = false
+                //stackView.push(Qt.resolvedUrl("pages/metricDashboardPage.qml"))
+                pageViewHome.visible = true
+                pageViewBuildDashboard.visible = true
+                pageViewAbout.visible = false
+            }
 
         }
 
@@ -149,26 +204,21 @@ Window {
             anchors.topMargin: 10
             menuText: "About"
             isActive: false
+            onClicked: {
+                home.isActive = false
+                buildDashboard.isActive = false
+                about.isActive = true
+                //stackView.push(Qt.resolvedUrl("pages/aboutPage.qml"))
+                pageViewHome.visible = false
+                pageViewBuildDashboard.visible = false
+                pageViewAbout.visible = true
+            }
 
         }
     }
 
-    Label {
-        id: label
-        y: 49
-        height: 36
-        color: "#ffffff"
-        text: qsTr("RC Build Assistant")
-        anchors.top: parent.top
-        anchors.horizontalCenterOffset: 0
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: 20
-        font.styleName: "Semibold"
-        font.pointSize: 20
-    }
-
     Image {
-        id: image
+        id: ubisoftLogo
         x: 710
         y: 409
         width: 100
@@ -261,6 +311,7 @@ Window {
         }
     }
 
+
     MouseArea {
         id: mouseArea
         y: 531
@@ -278,4 +329,5 @@ Window {
                              }
         }
     }
+
 }
