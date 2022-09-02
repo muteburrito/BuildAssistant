@@ -130,7 +130,7 @@ Window {
 
     Rectangle {
         id: leftMenu
-        width: 70
+        width: 75
         color: "#37474f"
         anchors.left: parent.left
         anchors.top: parent.top
@@ -144,7 +144,7 @@ Window {
             id: animationMenu
             target: leftMenu
             property: "width"
-            to: if(leftMenu.width == 70) return 200; else return 70
+            to: if(leftMenu.width == 75) return 200; else return 75
             duration: 500
             easing.type: Easing.InOutQuint
 
@@ -215,6 +215,19 @@ Window {
             }
 
         }
+
+        Label {
+            id: timeView
+            y: 502
+            color: "#B0BEC5"
+            text: qsTr("")
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.pointSize: 12
+            font.bold: true
+            anchors.bottomMargin: 20
+        }
+
     }
 
     Image {
@@ -330,4 +343,11 @@ Window {
         }
     }
 
+    Connections{
+        target: backend
+
+        function onPrintTime(time){
+            timeView.text = time
+        }
+    }
 }

@@ -4,21 +4,23 @@ import QtQuick.Controls 2.15
 Button{
     // Default Values
     id: custombtn
-    implicitWidth: 200
+    implicitWidth: 60
     implicitHeight: 35
     icon.color: "#ffffff"
     background: Rectangle{
         color: internal.dynamicColor
-        radius: 10
+        radius: 4
     }
 
     // Customizable Properties -->
     property color colorDefault: "#607D8B"
     property color colorMouseOver: "#90A4AE"
     property color colorPressed: "#B0BEC5"
+    property string btnText: "Button"
     Text{
         anchors.centerIn: parent
-        text: "Custom Button"
+        text: btnText
+        color: "#263238"
     }
 
     QtObject{

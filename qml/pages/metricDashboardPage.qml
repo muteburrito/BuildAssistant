@@ -3,6 +3,8 @@ import QtQuick.Controls 2.15
 
 Item {
     id: buildDashboardPage
+    width: 840
+    height: 520
     Rectangle{
         id: buildDashboard
         width: 840
@@ -11,13 +13,16 @@ Item {
         anchors.fill: parent
 
         Label {
-            id: label
-            text: qsTr("Build DashBoard")
-            anchors.verticalCenter: parent.verticalCenter
+            id: labelTitle
+            color: "#fbfbfb"
+            text: qsTr("Build Dashboard")
+            anchors.top: parent.top
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            font.pointSize: 10
             anchors.horizontalCenter: parent.horizontalCenter
+            anchors.topMargin: 0
+            font.styleName: "Semibold"
+            font.pointSize: 20
         }
 
     }

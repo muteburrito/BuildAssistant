@@ -8,14 +8,15 @@ TextField{
     implicitHeight: 30
     background: Rectangle{
         color: internal.dynamicColor
-        radius: 10
+        radius: 4
     }
     color: "#263238"
     horizontalAlignment: Text.AlignHCenter
     font.styleName: "Semibold"
-    font.pointSize: 12
-    font.weight: Font.Normal
+    font.pointSize: 9
 
+    font.weight: Font.Normal
+    placeholderText: "Type Something"
     selectByMouse: true
     selectedTextColor: "#B0BEC5"
     selectionColor: "#263238"
