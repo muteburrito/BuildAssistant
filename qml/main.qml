@@ -32,13 +32,6 @@ Window {
         anchors.rightMargin: 0
         anchors.leftMargin: 0
 
-        // Commenting Stack view as loader has a better performance
-        /*StackView {
-            id: stackView
-            anchors.fill: parent
-            initialItem: Qt.resolvedUrl("pages/home.qml")
-        }*/
-
         Loader{
             id: pageViewHome
             anchors.fill: parent
@@ -102,6 +95,7 @@ Window {
         onClicked: window.close()
     }
 
+    /*Commenting Maximize button as it is not needed at the moment
     ControlButtons{
         id: ctrl_maximize
         x: 777
@@ -113,13 +107,13 @@ Window {
 
         // Fuction to mximize -->
         onClicked: internal.maximizeRestore()
-    }
+    }*/
 
     ControlButtons{
         id: ctrl_minimize
         x: 719
-        anchors.right: ctrl_maximize.left
-        anchors.top: ctrl_maximize.bottom
+        anchors.right: ctrl_close.left
+        anchors.top: ctrl_close.bottom
         anchors.topMargin: -20
         anchors.rightMargin: 15
         btn1IconSource: "../images/svg_images/minimize.svg"
@@ -238,7 +232,7 @@ Window {
         height: 100
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        source: "../images/svg_images/ubisoft_logo.png"
+        source: "../images/png_images/ubisoft_logo.png"
         anchors.bottomMargin: 15
         anchors.rightMargin: 15
         fillMode: Image.PreserveAspectFit

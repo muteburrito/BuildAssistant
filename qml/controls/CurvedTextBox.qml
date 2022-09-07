@@ -10,7 +10,7 @@ TextField{
         color: internal.dynamicColor
         radius: 4
     }
-    color: "#263238"
+    color: "#ffffff"
     horizontalAlignment: Text.AlignHCenter
     font.styleName: "Semibold"
     font.pointSize: 9
@@ -23,7 +23,7 @@ TextField{
     placeholderTextColor: "#263238"
 
     // Customizable Properties -->
-    property color colorDefault: "#607D8B"
+    property color colorDefault: "#ffffff"
     property color coloronFocus: "#90A4AE"
     property color coloronMouseOver: "#B0BEC5"
 

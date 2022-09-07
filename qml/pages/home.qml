@@ -183,6 +183,6 @@ Item {
 }
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:6}D{i:8}D{i:10}D{i:12}D{i:13}D{i:14}D{i:15}
+    D{i:0;formeditorZoom:0.9}
 }
 ##^##*/

@@ -55,7 +55,7 @@ class MainWindow(QObject):
         dict(psutil.virtual_memory()._asdict())
         percent = psutil.virtual_memory().available * 100 / psutil.virtual_memory().total
         psutil.virtual_memory().percent
-        print(percent)
+        #print(percent)
         self.ramUsage.emit(f"RAM used is : {percent}")
 
     # Function for displaying time (setTime)
